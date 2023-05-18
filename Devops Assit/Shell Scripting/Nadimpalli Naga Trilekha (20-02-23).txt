@@ -1,0 +1,68 @@
+
+1)creating backup directory,removing old backup
+
+#! /bin/bash
+#backup directory path
+BACKUP_DIR="/home/vboxuser/backup_dir"
+#direcytory you want to backup path
+BACKUP_PATH=("/etc/" "/var/log/")
+BACKUPFILE_NAME=$(date +%Y-%m-%d_%H-%M-%S)
+BACKUP_COUNT=5
+check_backup_dir () {
+    if [ -d $BACKUP_DIR ]
+    then 
+        echo "Backup directory is exists"
+    else 
+     echo "Backup directory is not present so creating the directory"
+     sudo mkdir $BACKUP_DIR
+    fi
+}
+check_backup_status () {
+    if [ $? -eq 0 ]
+    then 
+    echo "backup was created successfully"
+    else
+    echo "backup failed"
+    exit
+    fi
+}
+REMOVE_OLD_FILES () {
+    cd $BACKUP_DIR
+    list_files=$(ls -lrt | wc -l)
+    if [ $list_files -gt $BACKUP_COUNT ]
+    then 
+     delete_files=$(expr $list_files - $BACKUP_COUNT )
+     delete_backup=$(ls -lrt | head -n $delete_files | awk '{print $9}')
+     i=0
+     for i in $delete_backup
+     do 
+     sudo rm -rf $i
+     done
+     fi 
+}
+
+      
+      
+create_backup () {
+
+
+ for i in ${BACKUP_PATH[@]} 
+ do 
+ sudo tar cvf $BACKUP_DIR/{$BACKUPFILE_NAME}_$(basename $i).tar $i
+ Exit_status=$?
+ check_backup_status
+ done 
+}
+
+check_backup_dir
+create_backup
+REMOVE_OLD_FILES
+
+
+
+OUTPUT:
+
+root@trilekha-VirtualBox:/home/trilekha/backup_dir# ls
+{2023-02-21_18-02-53}_log.tar  {2023-02-21_18-10-23}_log.tar  {2023-02-21_18-12-01}_log.tar
+{2023-02-21_18-10-23}_etc.tar  {2023-02-21_18-12-01}_etc.tar
+

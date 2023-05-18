@@ -1,0 +1,495 @@
+1)Shell Script using Arthematic Operation ADDITION SUBTRACTION and MULTIPLICATION ? 
+
+#! /bin/bash 
+
+echo "enter values" 
+
+read num1 
+
+read num2 
+
+ c= `expr $num1 + $num2 ` 
+
+ d= `expr $num1 - $num2 ` 
+
+ e= `expr $num1 \* $num2 ` 
+
+ echo $c  
+
+ echo $d 
+
+echo $e 
+
+OUTPUT: 
+
+ root@trilekha-VirtualBox:~# bash arthematic.sh 
+
+ enter values 
+
+5 
+
+3 
+
+ Addition of Two numbers: 8  
+
+ Subtraction of two numbers: 2 
+
+  Multiplication of two numbers: 15 
+
+  
+
+ 
+
+ 2) Script for iterating for loop ? 
+
+#! /bin/bash 
+
+for (( i=0; i<=10; i++ )) 
+
+  do 
+
+   echo $i 
+
+   done 
+
+  
+
+  
+
+ 
+
+Output: 
+
+root@trilekha-VirtualBox:~# bash  for123.sh 
+
+ 0 
+
+ 1 
+
+ 2 
+
+ 3 
+
+ 4 
+
+ 5 
+
+ 6 
+
+ 7 
+
+ 8 
+
+ 9 
+
+ 10 
+
+Itreration of for loop 
+
+#!/bin/bash 
+
+ for i in {1..30..3} 
+
+ do 
+
+ echo $i 
+
+ done 
+
+Output: 
+
+1 
+
+4 
+
+7 
+
+10 
+
+ 13 
+
+16 
+
+19 
+
+22 
+
+  
+
+25 
+
+28 
+
+ 
+
+3)For Iteration of ifelsa loop: 
+
+ #!/bin/bash 
+
+word=a 
+
+if [[  $word != "b" ]] 
+
+   then 
+
+   echo "condition is true" 
+
+ else 
+
+    echo "condition is false" 
+
+ Fi 
+
+Output: 
+
+root@trilekha-VirtualBox:~# bash  ifelse.sh 
+
+ condition is true 
+
+ 
+
+4) Deleting the line containing a specific word ? 
+
+#! /bin/bash 
+
+if [ $# -eq 0 ] 
+
+  Then 
+
+  echo "No Argument" 
+
+else 
+
+   pattern=$1 
+
+   shift 
+
+ echo "Enter File Name" 
+
+ read fname 
+
+ if [ -f $fname ] 
+
+ then 
+
+ echo "Deleting $pattern from $fname" 
+
+ sed `/`$pattern`/d` $fname 
+
+ else 
+
+ echo $fname not found 
+
+fi 
+
+fi 
+
+Output: 
+
+ 
+
+ 
+
+5)  Entering the Month and output the numbers of days ? 
+
+#! /bin/bash 
+
+shopt -s nocasematch 
+
+echo "enter name of month" 
+
+read month 
+
+case $month in 
+
+    February) 
+
+ echo "There are 28/29 days in $month";; 
+
+  April|June|September|November) 
+
+   echo "there are 30 days in a $month";; 
+
+ January|March|May|July|August|October|December) 
+
+  echo "there are 31 days ia this $month";; 
+
+  *) 
+
+ echo "Unknown month, Please check if you entered the wrong name:$month";; 
+
+ esac 
+
+ 
+
+ Output: 
+
+root@trilekha-VirtualBox:~# bash month.sh 
+
+enter name of month 
+
+January 
+
+there are 31 days ia this January 
+
+ 
+
+ 
+
+6) Tomcat Installation 
+
+#! /bin/bash 
+
+ wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.27/bin/apache-tomcat-10.0.27.tar.gz 
+
+ tar -xvzf apache-tomcat-10.0.27.tar.gz 
+
+ read "command" 
+
+ if [  "$command = delete" ] 
+
+ then 
+
+rm -rf apache-tomcat-10.0.27.tar.gz 
+
+ echo "deleted successfully" 
+
+ fi 
+
+ Output: 
+
+root@trilekha-VirtualBox:~# bash  tomcat.cs 
+
+ --2023-02-19 19:11:31--  https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.27/bin/apache-tomcat-10.0.27.tar.gz 
+
+ Resolving dlcdn.apache.org (dlcdn.apache.org)... 151.101.2.132, 2a04:4e42::644 
+
+ Connecting to dlcdn.apache.org (dlcdn.apache.org)|151.101.2.132|:443... connected. 
+
+ HTTP request sent, awaiting response... 404 Not Found 
+
+ 2023-02-19 19:11:32 ERROR 404: Not Found. 
+
+ apache-tomcat-10.0.27/conf/ 
+
+ apache-tomcat-10.0.27/conf/catalina.policy 
+
+ apache-tomcat-10.0.27/conf/catalina.properties 
+
+ apache-tomcat-10.0.27/conf/context.xml 
+
+ apache-tomcat-10.0.27/conf/jaspic-providers.xml 
+
+ apache-tomcat-10.0.27/conf/jaspic-providers.xsd 
+
+ apache-tomcat-10.0.27/conf/logging.properties 
+
+ apache-tomcat-10.0.27/conf/server.xml 
+
+ apache-tomcat-10.0.27/conf/tomcat-users.xml 
+
+ apache-tomcat-10.0.27/conf/tomcat-users.xsd 
+
+ apache-tomcat-10.0.27/conf/web.xml 
+
+ apache-tomcat-10.0.27/bin/ 
+
+ apache-tomcat-10.0.27/lib/ 
+
+ apache-tomcat-10.0.27/logs/ 
+
+ apache-tomcat-10.0.27/temp/ 
+
+ apache-tomcat-10.0.27/webapps/ 
+
+ apache-tomcat-10.0.27/webapps/ROOT/ 
+
+ apache-tomcat-10.0.27/webapps/ROOT/WEB-INF/ 
+
+ apache-tomcat-10.0.27/webapps/docs/ 
+
+ apache-tomcat-10.0.27/webapps/docs/WEB-INF/ 
+
+ apache-tomcat-10.0.27/webapps/docs/annotationapi/ 
+
+ apache-tomcat-10.0.27/webapps/docs/api/ 
+
+ apache-tomcat-10.0.27/webapps/docs/appdev/ 
+
+ apache-tomcat-10.0.27/webapps/docs/appdev/sample/ 
+
+ apache-tomcat-10.0.27/weba 
+
+ 
+
+7) ~Debugging script for while loop ?              
+
+#!/bin/bash 
+
+ set –x 
+
+n=1 
+
+while (( $n <= 10 ) 
+
+  do 
+
+   echo $n 
+
+  ((n++)) 
+
+   done   
+
+ 
+
+Output:                                                                                                                                                                       
+
+root@trilekha-VirtualBox:~# bash debug.sh 
+
+ + n=1 
+
+ debug.sh: line 8: syntax error near unexpected token `do' 
+
+ debug.sh: line 8: `  do' 
+
+ 
+
+ 8)  To find the Disk Space utilization              
+
+ !/bin/bash 
+
+Current=$(df / | grep / | awk '{ print $5 }' | sed 's/%//g') 
+
+ Threshold=40 
+
+ if [ "$Current" -gt "$Threshold" ]; then 
+
+mail -s 'Disk Space Alert' trilekha@gmail.com << EOF 
+
+ Your root partition remaining free space is critically low. Used: $Current% 
+
+ EOF 
+
+ fi 
+
+ Output: 
+
+ 
+
+9)Creating the backup of all files in a directory? 
+
+! /bin/bash 
+
+ echo -e "enter directory path:\c" 
+
+read dir1 
+
+ echo -e "enter file extension:\c" 
+
+ read ext1 
+
+ cd $dir1 
+
+ fun() { 
+
+   d=$(find $dir1 -type f -name "*$ext1") 
+
+    sudo cp $d ./backup 
+
+ } 
+
+ if [ -d backup ] 
+
+ then 
+
+ echo -e "backup directory is already exist can i override it (YES/NO):\c" 
+
+  read a 
+
+  if [ $a == YES ] 
+
+   then 
+
+   cd backup/ 
+
+   sudo rm -f * 
+
+  cd .. 
+
+    fun 
+
+ else 
+
+   echo "same name files are present " 
+
+  exit 
+
+fi 
+
+else 
+
+   echo "backup directory is not present so creating the directory " 
+
+   sudo mkdir backup 
+
+  fun 
+
+ fi 
+
+  
+
+                                                                                                                                                                                                      
+
+  
+
+~                                                                                                                                                                                                           
+
+  
+
+~                                                                                                                                                                                                           
+
+  
+
+~                                                                                                                                                                                                           
+
+  
+
+~                                                                                                                                                                                                           
+
+  
+
+~                                                                                                                                                                                                           
+
+  
+
+~                                                                                                                                                                                                           
+
+  
+
+~                                                                                                                                                                                                           
+
+  
+
+~                                                                                                                                                                                                           
+
+  
+
+~                    
+
+~                                                                                                                                                                                                           
+
+  
+
+~            
+
+~           
+
+ 
+
+~     
+
+ 
+
+ 
+
+~            

@@ -1,0 +1,80 @@
+
+1)shell script on date time pwd
+
+#!/bin/bash
+echo "current  date is  `date`"
+echo "user is `whoami`"
+echo "current directory is `pwd`"
+
+OUTPUT:
+
+trilekha@trilekha-VirtualBox:~/Desktop$ sh date_time.sh
+current  date is  Monday 20 February 2023 12:41:27 PM IST
+user is trilekha
+current directory is /home/trilekha/Desktop
+
+2)Addition of two numbersand Error msg
+
+#!/bin/bash
+if [ $# -eq 0 ]
+then
+   echo "Error message"
+else
+num1=$1
+num2=$2
+c= `expr $num1 + $num2`
+echo $c
+fi
+
+OUTPUT:
+
+trilekha@trilekha-VirtualBox:~/Desktop$ sh add_task2.sh 1 4
+add_task2.sh: 8
+
+
+3)Reverse order of an number
+
+#!/bin/bash
+
+if [ $# -eq 1 ]; then
+    if [ $1 -gt 0 ]; then
+        num=$1
+		two=3
+        revNum=0
+        while [ $num -ne 0 ]
+        do
+            testnum=$(( $num %  10 ))
+            revNum=$(( $revNum * 10 + $testnum ))
+            num=$(( $nu / 10 ))
+        done
+        echo "Reverse Number:  $revNum of $1"
+    else
+        echo "Input is less than 0, retry with a different number."
+    fi
+else
+    echo "ERROR: Retry with one parameter."
+fi
+
+output
+
+trilekha@trilekha-VirtualBox:~/Desktop$ sh rev.sh 1231
+Reverse Number:  1321 of 1231
+
+4)adding two float no using BC:
+
+trilekha@trilekha-VirtualBox:~/Desktop$ bc 
+bc 1.07.1
+Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006, 2008, 2012-2017 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'. 
+4.5+4.5
+9.0
+
+5) pi program:
+
+trilekhaa@trilekha-VirtualBox:~/Desktop$ bc -l <<< "scale=100;22/7"
+3.142857142857142857142857142857142857142857142857142857142857142857\
+1428571428571428571428571428571428
+
+
+You are supposed to find the value of pi upto 100 places of decimal, what is the easiest way to get the result done.
